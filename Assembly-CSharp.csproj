@@ -36,10 +36,10 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\TerrainGenerationScript.cs" />
-     <Compile Include="Assets\Scripts\TerrainFace.cs" />
-     <Compile Include="Assets\Scripts\SimplexNoiseFilter.cs" />
      <Compile Include="Assets\Scripts\SimplexPerlinNoise.cs" />
+     <Compile Include="Assets\Scripts\TerrainGenerationScript.cs" />
+     <Compile Include="Assets\Scripts\SimplexNoiseFilter.cs" />
+     <Compile Include="Assets\Scripts\TerrainFace.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.26f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

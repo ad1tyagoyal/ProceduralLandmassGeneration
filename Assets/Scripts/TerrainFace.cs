@@ -23,6 +23,7 @@ public class TerrainFace
     {
         Vector3[] vertices = new Vector3[(int)Mathf.Pow(m_Resolution, 2)];
         int[] triangleIndices = new int[(int)(Mathf.Pow((m_Resolution - 1), 2) * 6)];
+        Vector2[] uvs = new Vector2[(int)Mathf.Pow(m_Resolution, 2)];
 
         {
             int verticesIndex = 0, triangleIndex = 0;
@@ -37,8 +38,9 @@ public class TerrainFace
                     Vector3 pointOnUnitCube = m_LocalUp + ((percentage.x - 0.5f) * 2 * m_AxisA)
                                                         + ((percentage.y - 0.5f) * 2 * m_AxisB);
 
-                    pointOnUnitCube.y *= Mathf.Ceil(m_NoiseFilter.Evaluate(ref pointOnUnitCube));
+                    pointOnUnitCube.y *= m_NoiseFilter.Evaluate(ref pointOnUnitCube);
                     vertices[verticesIndex] = pointOnUnitCube;
+                    uvs[verticesIndex] = new Vector2(x / (float)m_Resolution, y / (float)m_Resolution);
 
                     if (x != (m_Resolution - 1) && y != (m_Resolution - 1))
                     {
@@ -61,6 +63,7 @@ public class TerrainFace
         m_Mesh.Clear();
         m_Mesh.vertices = vertices;
         m_Mesh.triangles = triangleIndices;
+        m_Mesh.uv = uvs;
         m_Mesh.RecalculateNormals();
     }
 }
